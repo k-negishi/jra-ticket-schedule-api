@@ -39,6 +39,9 @@ venv/
 env/
 ENV/
 
+# IDEs
+.idea/workspace.xml
+
 # OS
 .DS_Store
 Thumbs.db
