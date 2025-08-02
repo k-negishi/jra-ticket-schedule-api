@@ -1,18 +1,19 @@
 import os
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 from typing import List, Dict, Any
 from src.config.calendar_mapping import get_calendar_config
 
+
 class CalendarService:
     """
     年別のGoogleマイカレンダーとの連携を管理するクラス
     """
-    
+
     def __init__(self):
         self._service = self._create_calendar_service()
-    
+
     def _create_calendar_service(self):
         """
         Google Calendar APIサービスを作成
@@ -34,13 +35,13 @@ class CalendarService:
                 },
                 scopes=['https://www.googleapis.com/auth/calendar.readonly']
             )
-            
+
             return build('calendar', 'v3', credentials=credentials)
-            
+
         except Exception as e:
             print(f"Failed to create calendar service: {str(e)}")
             raise
-    
+
     def get_events_by_date(self, year: int, month: int, day: int) -> List[Dict[str, Any]]:
         """
         指定日のイベントを取得
@@ -58,13 +59,16 @@ class CalendarService:
             config = get_calendar_config(year)
             if not config:
                 raise ValueError(f"Calendar config not found for year {year}")
-            
+
             calendar_id = config['calendar_id']
-            
-            # 指定日の開始と終了
-            start_date = datetime(year, month, day, 0, 0, 0).isoformat() + 'Z'
-            end_date = datetime(year, month, day, 23, 59, 59).isoformat() + 'Z'
-            
+
+            # JST タイムゾーンを定義（UTC+9）
+            jst = timezone(timedelta(hours=9))
+
+            # 指定日の開始と終了（JST）
+            start_date = datetime(year, month, day, 0, 0, 0, tzinfo=jst).isoformat()
+            end_date = datetime(year, month, day, 23, 59, 59, tzinfo=jst).isoformat()
+
             events_result = self._service.events().list(
                 calendarId=calendar_id,
                 timeMin=start_date,
@@ -72,9 +76,9 @@ class CalendarService:
                 singleEvents=True,
                 orderBy='startTime'
             ).execute()
-            
+
             events = events_result.get('items', [])
-            
+
             # イベントデータを整形
             formatted_events = []
             for event in events:
@@ -91,9 +95,9 @@ class CalendarService:
                     'calendar_id': calendar_id
                 }
                 formatted_events.append(formatted_event)
-            
+
             return formatted_events
-            
+
         except Exception as e:
             print(f"Failed to get events for date {year}-{month:02d}-{day:02d}: {str(e)}")
-            raise 
+            raise
