@@ -6,6 +6,9 @@ AWS Lambda関数(Lambda Function URL)によって実装されており、指定�
 カレンダーの元ネタは、JRAの公式のレーシングカレンダーを使用しています。
 https://www.jra.go.jp/keiba/common/calendar/ics2025.html
 
+本APIは、以下のフロントエンドアプリケーションで利用するために作成しました。
+https://github.com/k-negishi/jra-ticket-schedule
+
 ## 技術スタック
 - AWS Lambda
 - Python 3.12
