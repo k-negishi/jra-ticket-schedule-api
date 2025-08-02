@@ -28,8 +28,10 @@ class TestLambdaHandler:
             {'race_name': '日本ダービー(GI)', 'location': '東京競馬場'},
             {'race_name': '目黒記念(GII)', 'location': '東京競馬場'},
             {'race_name': '葵ステークス(GIII)', 'location': '京都競馬場'}
+
         ]
         assert body['events'] == expected_events
+        print(body)
 
     def test_lambda_handler_missing_parameters(self):
         """パラメータ不足のテスト"""
