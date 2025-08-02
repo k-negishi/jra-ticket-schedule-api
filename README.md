@@ -22,11 +22,11 @@ GET https://[function-url-id].lambda-url.[region].on.aws/jra-calendar/events
 ```
 
 #### クエリパラメータ
-| パラメータ | 説明 | 例 |
-| --- | --- | --- |
+| パラメータ | 説明 | 例   |
+| --- | --- |-----|
 | year | 取得したい年 (必須) | 2025 |
-| month | 取得したい月 (必須) | 5 |
-| day | 取得したい日 (必須) | 31 |
+| month | 取得したい月 (必須) | 6   |
+| day | 取得したい日 (必須) | 1   |
 
 
 ### レスポンス例
@@ -40,14 +40,10 @@ GET https://[function-url-id].lambda-url.[region].on.aws/jra-calendar/events
     {
       "race_name": "目黒記念(GII)",
       "location": "東京競馬場"
-    },
-    {
-      "race_name": "葵ステークス(GIII)",
-      "location": "京都競馬場"
     }
   ],
-  "date": "2025-05-31",
-  "count": 3
+  "date": "2025-06-01",
+  "count": 2
 }
 ```
 
