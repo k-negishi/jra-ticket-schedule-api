@@ -25,22 +25,22 @@ GET https://[function-url-id].lambda-url.[region].on.aws/jra-calendar/events
 ### レスポンス例
 ```json
 {
-	"events": [
-		{
-			"race_name": "日本ダービー(GI)",
-			"location": "東京競馬場"
-		},
-		{
-			"race_name": "目黒記念(GII)",
-			"location": "東京競馬場"
-		},
-		{
-			"race_name": "葵ステークス(GIII)",
-			"location": "京都競馬場"
-		}
-	],
-	"date": "2025-05-31",
-	"count": 3
+  "events": [
+    {
+      "race_name": "日本ダービー(GI)",
+      "location": "東京競馬場"
+    },
+    {
+      "race_name": "目黒記念(GII)",
+      "location": "東京競馬場"
+    },
+    {
+      "race_name": "葵ステークス(GIII)",
+      "location": "京都競馬場"
+    }
+  ],
+  "date": "2025-05-31",
+  "count": 3
 }
 ```
 
