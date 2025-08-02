@@ -1,41 +1,29 @@
 # JRAカレンダーAPI
 
-GoogleカレンダーAPIをリクエストするAWS Lambda関数です。
-Lambda Function URL で直接アクセス可能で、指定した年・月・日のイベントを取得します。
+JRAカレンダーAPIは、Google Calendar APIを使用して日本中央競馬会（JRA）の競馬イベント情報を取得するAWS Lambda関数(Lambda Function URL によるAPI)です。指定した日付の競馬イベントを取得できます。
 
-## Tech Stack
+## 技術スタック
 - AWS Lambda
-- Python 3.12対応
-- Node.js 18以上
+- Python 3.12
 - Google Calendar API
 - Serverless Framework
 
-
-### 1. 開発環境セットアップ
-```bash
-cd lambda
-npm run setup:dev
-```
-
-### 2. 環境変数設定
-```bash
-cp env.example .env
-# .envファイルを編集してGoogle認証情報とカレンダー設定を設定
-```
-
-### 3. デプロイ
-```bash
-npm run deploy
-```
-
 ## API仕様
-
+### リクエスト
 ```
-GET https://[function-url-id].lambda-url.[region].on.aws/
-/jra-calendar/events?year=2025&month=5&day=31
+GET https://[function-url-id].lambda-url.[region].on.aws/jra-calendar/events
+```
+
+#### クエリパラメータ
+| パラメータ | 説明 | 例 |
+| --- | --- | --- |
+| year | 取得したい年 (必須) | 2025 |
+| month | 取得したい月 (必須) | 5 |
+| day | 取得したい日 (必須) | 31 |
 
 
-Response:
+### レスポンス例
+```json
 {
 	"events": [
 		{
@@ -58,12 +46,18 @@ Response:
 
 ## 詳細セットアップ
 
-### 環境変数の設定
+### 開発環境セットアップ
 ```bash
 cd lambda
+npm run setup:dev
+```
+
+### 環境変数設定
+```bash
 cp env.example .env
 # .envファイルを編集してGoogle認証情報とカレンダー設定を設定
 ```
+
 
 ### 依存関係のインストール
 ```bash
