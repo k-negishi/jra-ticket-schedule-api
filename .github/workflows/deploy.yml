@@ -19,7 +19,9 @@ jobs:
           node-version: '20'
 
       - name: Install Serverless Framework
-        run: npm install -g serverless@^3
+        run: |
+          npm install -g serverless@^3
+          npm install -g serverless-python-requirements
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v2
