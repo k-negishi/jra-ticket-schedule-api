@@ -2,7 +2,7 @@ service: jra-ticket-schedule-api
 
 provider:
   name: aws
-  runtime: python3.12
+  runtime: python3.11
   region: ap-northeast-1
 
   deploymentBucket:
@@ -47,13 +47,13 @@ custom:
 functions:
   getCalendarEvents:
     handler: src/main.lambda_handler
-    url: true
-    cors:
-      origin: '*'
-      headers:
-        - Content-Type
-        - X-Amz-Date
-        - Authorization
-        - X-Api-Key
-        - X-Amz-Security-Token
-      allowCredentials: false
+    url:
+      cors:
+        origin: '*'
+        headers:
+          - Content-Type
+          - X-Amz-Date
+          - Authorization
+          - X-Api-Key
+          - X-Amz-Security-Token
+        allowCredentials: false

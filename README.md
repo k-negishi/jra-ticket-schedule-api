@@ -11,7 +11,7 @@ https://github.com/k-negishi/jra-ticket-schedule
 
 ## 技術スタック
 - AWS Lambda
-- Python 3.12
+- Python 3.11
 - Google Calendar API
 - Serverless Framework
 
