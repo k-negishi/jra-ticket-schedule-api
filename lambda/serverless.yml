@@ -43,7 +43,7 @@ custom:
       - pytest
 
 functions:
-  getCalendarEvents:
+  get-jra-calendar:
     handler: src/main.lambda_handler
     url:
       cors:
