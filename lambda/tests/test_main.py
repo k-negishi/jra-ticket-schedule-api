@@ -17,7 +17,7 @@ class TestLambdaHandler:
                 }
             },
             'rawPath': '/jra-calendar/events',
-            'rawQueryString': 'year=2025&month=5&day=31'
+            'rawQueryString': 'year=2025&month=6&day=1'
         }
         
         response = lambda_handler(event, None)
@@ -27,8 +27,6 @@ class TestLambdaHandler:
         expected_events = [
             {'race_name': '日本ダービー(GI)', 'location': '東京競馬場'},
             {'race_name': '目黒記念(GII)', 'location': '東京競馬場'},
-            {'race_name': '葵ステークス(GIII)', 'location': '京都競馬場'}
-
         ]
         assert body['events'] == expected_events
         print(body)
@@ -156,7 +154,7 @@ class TestLambdaHandler:
                 }
             },
             'rawPath': '/jra-calendar/events',
-            'rawQueryString': 'year=2025&month=1&day=1'  # イベントが存在しない可能性が高い日付
+            'rawQueryString': 'year=2025&month=1&day=1'  # 非重賞開催日
         }
         
         response = lambda_handler(event, None)
