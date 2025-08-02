@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c8f921e-2047-440e-8ba3-af4752be3c8f" name="Changes" comment="Add deployment workflow for AWS Lambda and create TODO list for project setup">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-    </list>
+    <list default="true" id="3c8f921e-2047-440e-8ba3-af4752be3c8f" name="Changes" comment="Update README.md to enhance API description and clarify setup instructions" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -283,7 +280,23 @@
       <option name="project" value="LOCAL" />
       <updated>1754131432954</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Update IDE configuration and task history with new deployment workflows">
+      <option name="closed" value="true" />
+      <created>1754132025163</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1754132025163</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Update README.md to enhance API description and clarify setup instructions">
+      <option name="closed" value="true" />
+      <created>1754132032508</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1754132032508</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -304,6 +317,8 @@
     <MESSAGE value="Update IDE configuration and task history" />
     <MESSAGE value="Add serverless configuration and deployment workflow for JRA calendar API" />
     <MESSAGE value="Add deployment workflow for AWS Lambda and create TODO list for project setup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add deployment workflow for AWS Lambda and create TODO list for project setup" />
+    <MESSAGE value="Update IDE configuration and task history with new deployment workflows" />
+    <MESSAGE value="Update README.md to enhance API description and clarify setup instructions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update README.md to enhance API description and clarify setup instructions" />
   </component>
 </project>
