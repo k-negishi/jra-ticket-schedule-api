@@ -4,11 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c8f921e-2047-440e-8ba3-af4752be3c8f" name="Changes" comment="" />
+    <list default="true" id="3c8f921e-2047-440e-8ba3-af4752be3c8f" name="Changes" comment="Add calendar service and Lambda handler for JRA events API&#10;&#10;Implemented a calendar service to interface with Google Calendar, added utilities for response handling, and created a Lambda handler to fetch and sort JRA calendar events by date. Configurations and API credentials are managed via environment variables.">
+      <change beforePath="$PROJECT_DIR$/lambda/tests/test_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/lambda/tests/test_main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+      <option value="repository" />
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -37,7 +45,9 @@
     "Python tests.Python tests for test_calendar_service.TestCalendarService.executor": "Run",
     "Python tests.Python tests for test_calendar_service.TestCalendarService.test_get_events_by_date.executor": "Run",
     "Python tests.Python tests for test_main.TestLambdaHandler.executor": "Run",
-    "Python tests.Python tests in tests.executor": "Run",
+    "Python tests.Python tests for test_main.TestLambdaHandler.test_lambda_handler_empty_query_string.executor": "Run",
+    "Python tests.Python tests for test_main.TestLambdaHandler.test_lambda_handler_success.executor": "Run",
+    "Python tests.Python tests in tests.executor": "Debug",
     "Python.test_main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -50,37 +60,7 @@
     "settings.editor.splitter.proportion": "0.3337041"
   }
 }]]></component>
-  <component name="RunManager" selected="Python tests.Python tests for test_calendar_service.TestCalendarService.test_get_events_by_date">
-    <configuration name="Python tests for test_calendar_service.TestCalendarMapping.test_get_calendar_config_invalid_year" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="jra-ticket-schedule-api" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lambda/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_calendar_service.TestCalendarMapping.test_get_calendar_config_invalid_year&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests for test_calendar_service.TestCalendarService" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="jra-ticket-schedule-api" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lambda/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_calendar_service.TestCalendarService&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python tests.Python tests for test_main.TestLambdaHandler.test_lambda_handler_success">
     <configuration name="Python tests for test_calendar_service.TestCalendarService.test_get_events_by_date" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="jra-ticket-schedule-api" />
       <option name="ENV_FILES" value="" />
@@ -111,6 +91,36 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests for test_main.TestLambdaHandler.test_lambda_handler_empty_query_string" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="jra-ticket-schedule-api" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lambda/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_main.TestLambdaHandler.test_lambda_handler_empty_query_string&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_main.TestLambdaHandler.test_lambda_handler_success" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="jra-ticket-schedule-api" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lambda/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_main.TestLambdaHandler.test_lambda_handler_success&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="Python tests in tests" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="jra-ticket-schedule-api" />
       <option name="ENV_FILES" value="" />
@@ -128,11 +138,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Python tests for test_calendar_service.TestCalendarService.test_get_events_by_date" />
-        <item itemvalue="Python tests.Python tests for test_calendar_service.TestCalendarMapping.test_get_calendar_config_invalid_year" />
-        <item itemvalue="Python tests.Python tests for test_calendar_service.TestCalendarService" />
-        <item itemvalue="Python tests.Python tests for test_main.TestLambdaHandler" />
+        <item itemvalue="Python tests.Python tests for test_main.TestLambdaHandler.test_lambda_handler_success" />
         <item itemvalue="Python tests.Python tests in tests" />
+        <item itemvalue="Python tests.Python tests for test_main.TestLambdaHandler" />
+        <item itemvalue="Python tests.Python tests for test_main.TestLambdaHandler.test_lambda_handler_empty_query_string" />
+        <item itemvalue="Python tests.Python tests for test_calendar_service.TestCalendarService.test_get_events_by_date" />
       </list>
     </recent_temporary>
   </component>
@@ -144,6 +154,93 @@
       <option name="presentableId" value="Default" />
       <updated>1754124345786</updated>
     </task>
+    <task id="LOCAL-00001" summary="add .gitignore files for project directories">
+      <option name="closed" value="true" />
+      <created>1754130863701</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1754130863701</updated>
+    </task>
+    <task id="LOCAL-00002" summary="remove: IDE-related entries from .gitignore">
+      <option name="closed" value="true" />
+      <created>1754130947684</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1754130947684</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add: initial implementation of JRA Calendar API with AWS Lambda integration">
+      <option name="closed" value="true" />
+      <created>1754130956867</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1754130956867</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add: implement JRA Calendar API with AWS Lambda, including response handling and calendar configuration">
+      <option name="closed" value="true" />
+      <created>1754130982531</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1754130982531</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Add requirements files for production and development&#10;&#10;Created `requirements.txt` for production dependencies and `requirements-dev.txt` for development dependencies. This includes libraries for Google APIs, AWS SDK (boto3), and key development tools like pytest. Ensures clear segregation of runtime and development dependencies.">
+      <option name="closed" value="true" />
+      <created>1754131040124</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1754131040124</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Add example environment variables file for Lambda setup&#10;&#10;This commit introduces an `env.example` file to document required environment variables for the Lambda configuration. It includes settings for Google Cloud, calendar configurations, and AWS. This serves as a reference for setting up the deployment environment.">
+      <option name="closed" value="true" />
+      <created>1754131094486</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1754131094486</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Add package.json and package-lock.json for Lambda setup&#10;&#10;Added `package.json` and `package-lock.json` to initialize the project dependencies and configuration for the JRA Calendar API Lambda function. This includes scripts for deployment, logs, local invocation, and testing, as well as required packages for serverless deployment.">
+      <option name="closed" value="true" />
+      <created>1754131115256</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1754131115256</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Add calendar service and Lambda handler for JRA events API&#10;&#10;Implemented a calendar service to interface with Google Calendar, added utilities for response handling, and created a Lambda handler to fetch and sort JRA calendar events by date. Configurations and API credentials are managed via environment variables.">
+      <option name="closed" value="true" />
+      <created>1754131131085</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1754131131085</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Add calendar service and Lambda handler for JRA events API&#10;&#10;Implemented a calendar service to interface with Google Calendar, added utilities for response handling, and created a Lambda handler to fetch and sort JRA calendar events by date. Configurations and API credentials are managed via environment variables.">
+      <option name="closed" value="true" />
+      <created>1754131136612</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1754131136612</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add initial implementation of JRA Calendar API with AWS Lambda support" />
+    <MESSAGE value="add .gitignore files for project directories" />
+    <MESSAGE value="remove: IDE-related entries from .gitignore" />
+    <MESSAGE value="add: initial implementation of JRA Calendar API with AWS Lambda integration" />
+    <MESSAGE value="add: implement JRA Calendar API with AWS Lambda, including calendar configuration, response handling, and setup instructions" />
+    <MESSAGE value="Add requirements files for production and development&#10;&#10;Created `requirements.txt` for production dependencies and `requirements-dev.txt` for development dependencies. This includes libraries for Google APIs, AWS SDK (boto3), and key development tools like pytest. Ensures clear segregation of runtime and development dependencies." />
+    <MESSAGE value="add: implement JRA Calendar API with AWS Lambda, including response handling and calendar configuration" />
+    <MESSAGE value="Add env.example file for configuration reference&#10;&#10;Include Google Cloud, calendar, and AWS-related environment variables in the example file. This provides a template for setting up the required configurations easily." />
+    <MESSAGE value="Add example environment variables file for Lambda setup&#10;&#10;This commit introduces an `env.example` file to document required environment variables for the Lambda configuration. It includes settings for Google Cloud, calendar configurations, and AWS. This serves as a reference for setting up the deployment environment." />
+    <MESSAGE value="Add package.json and package-lock.json for Lambda setup&#10;&#10;Added `package.json` and `package-lock.json` to initialize the project dependencies and configuration for the JRA Calendar API Lambda function. This includes scripts for deployment, logs, local invocation, and testing, as well as required packages for serverless deployment." />
+    <MESSAGE value="Add calendar service and Lambda handler for JRA events API&#10;&#10;Implemented a calendar service to interface with Google Calendar, added utilities for response handling, and created a Lambda handler to fetch and sort JRA calendar events by date. Configurations and API credentials are managed via environment variables." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add calendar service and Lambda handler for JRA events API&#10;&#10;Implemented a calendar service to interface with Google Calendar, added utilities for response handling, and created a Lambda handler to fetch and sort JRA calendar events by date. Configurations and API credentials are managed via environment variables." />
   </component>
 </project>
