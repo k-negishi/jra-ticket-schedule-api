@@ -37,7 +37,7 @@ plugins:
 custom:
   pythonRequirements:
     dockerizePip: non-linux
-    requirementsPath: lambda/src/requirements.txt
+    requirementsPath: lambda/requirements.txt
     noDeploy:
       - coverage
       - pytest

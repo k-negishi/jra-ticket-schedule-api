@@ -9,7 +9,7 @@
     "logs": "serverless logs -f getCalendarEvents",
     "invoke:local": "serverless invoke local --function getCalendarEvents --data '{\"queryStringParameters\": {\"year\": \"2024\", \"month\": \"1\", \"day\": \"15\"}}'",
     "test": "./venv/bin/python -m pytest tests/ -v",
-    "setup:dev": "python3 -m venv venv && source venv/bin/activate && pip install -r requirements-dev.txt",
+    "setup:dev": "python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt",
     "activate:dev": "source venv/bin/activate"
   },
   "devDependencies": {
