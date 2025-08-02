@@ -38,9 +38,6 @@ custom:
   pythonRequirements:
     dockerizePip: non-linux
     requirementsPath: lambda/src/requirements.txt
-    layer:
-      name: python-deps
-      description: Python dependencies for calendar API
     noDeploy:
       - coverage
       - pytest
