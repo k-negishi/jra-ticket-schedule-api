@@ -45,13 +45,4 @@ custom:
 functions:
   get-jra-calendar:
     handler: src/main.lambda_handler
-    url:
-      cors:
-        allowedOrigins: ['*']
-        allowedHeaders:
-          - Content-Type
-          - X-Amz-Date
-          - Authorization
-          - X-Api-Key
-          - X-Amz-Security-Token
-        allowCredentials: false
+    url: true
