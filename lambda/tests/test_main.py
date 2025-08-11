@@ -89,7 +89,7 @@ class TestLambdaHandler:
         assert 'Invalid date' in body['error']
 
     def test_lambda_handler_no_events_found(self):
-        """イベントが見つからない場合のテスト"""
+        """重賞レースが見つからない日のテスト"""
         event = {
             'requestContext': {
                 'http': {
