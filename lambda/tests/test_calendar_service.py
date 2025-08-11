@@ -28,7 +28,7 @@ class TestCalendarService:
             month = 6
             day = 1
             
-            events = service.get_events_by_date(year, month, day)
+            events = service.get_races_by_date(year, month, day)
             print(events)
             
             # イベントがリスト形式で返されることを確認
@@ -58,7 +58,7 @@ class TestCalendarService:
             month = 1
             day = 1
             
-            events = service.get_events_by_date(year, month, day)
+            events = service.get_races_by_date(year, month, day)
             
             # 空のリストが返されることを確認
             assert isinstance(events, list)

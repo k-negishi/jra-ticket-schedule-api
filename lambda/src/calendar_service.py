@@ -42,9 +42,9 @@ class CalendarService:
             print(f"Failed to create calendar service: {str(e)}")
             raise
 
-    def get_events_by_date(self, year: int, month: int, day: int) -> List[Dict[str, Any]]:
+    def get_races_by_date(self, year: int, month: int, day: int) -> List[Dict[str, Any]]:
         """
-        指定日のイベントを取得
+        指定日の重量レースを取得
         
         Args:
             year: 年
@@ -52,7 +52,7 @@ class CalendarService:
             day: 日
             
         Returns:
-            イベントのリスト
+            重賞レースのリスト
         """
         try:
             # 年別カレンダー設定を取得
@@ -69,7 +69,7 @@ class CalendarService:
             start_date = datetime(year, month, day, 0, 0, 0, tzinfo=jst).isoformat()
             end_date = datetime(year, month, day, 23, 59, 59, tzinfo=jst).isoformat()
 
-            events_result = self._service.events().list(
+            response = self._service.events().list(
                 calendarId=calendar_id,
                 timeMin=start_date,
                 timeMax=end_date,
@@ -77,7 +77,7 @@ class CalendarService:
                 orderBy='startTime'
             ).execute()
 
-            events = events_result.get('items', [])
+            races = response.get('items', [])
 
             # イベントデータを整形
             formatted_events = list(map(lambda event: {
@@ -91,10 +91,10 @@ class CalendarService:
                 'month': month,
                 'day': day,
                 'calendar_id': calendar_id
-            }, events))
+            }, races))
 
             return formatted_events
 
         except Exception as e:
-            print(f"Failed to get events for date {year}-{month:02d}-{day:02d}: {str(e)}")
+            print(f"Failed to get races for date {year}-{month:02d}-{day:02d}: {str(e)}")
             raise

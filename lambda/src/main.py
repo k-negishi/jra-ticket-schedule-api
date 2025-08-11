@@ -25,7 +25,7 @@ def lambda_handler(event, context):
         calendar_service = CalendarService()
 
         # 指定日のイベント取得
-        if path == '/jra-calendar/events' and http_method == 'GET':
+        if path == '/jra-calendar/races' and http_method == 'GET':
             # 必須パラメータの検証
             year = query_params.get('year')
             month = query_params.get('month')
@@ -47,16 +47,16 @@ def lambda_handler(event, context):
             except ValueError:
                 return create_error_response(400, 'Invalid date')
 
-            # GoogleカレンダーAPIをリクエスト
-            events = calendar_service.get_events_by_date(year, month, day)
+            #
+            races = calendar_service.get_races_by_date(year, month, day)
 
             # イベントをグレード順に並べ替えて整形
-            formatted_events = _format_and_sort_events(events)
+            formatted_races = _format_and_sort_races(races)
 
             return create_response(200, {
-                'events': formatted_events,
+                'events': formatted_races,
                 'date': f"{year:04d}-{month:02d}-{day:02d}",
-                'count': len(events)
+                'count': len(races)
             })
 
         else:
@@ -67,9 +67,9 @@ def lambda_handler(event, context):
         return create_error_response(500, f"Internal server error: {str(e)}")
 
 
-def _format_and_sort_events(events):
+def _format_and_sort_races(races):
     """
-    イベントをグレード順に並べ替えて、summaryとlocationのみの形式に整形する
+    レースをグレード順に並べ替えて、summaryとlocationのみの形式に整形する
     """
     # グレードに基づいて並べ替える関数
     def _get_grade_key(event):
@@ -84,7 +84,7 @@ def _format_and_sort_events(events):
         return 999
 
     # グレード順にソート
-    sorted_events = sorted(events, key=_get_grade_key)
+    sorted_events = sorted(races, key=_get_grade_key)
 
     # race_nameとlocationのみの形式に整形
     return [
