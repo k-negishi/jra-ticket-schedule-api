@@ -80,21 +80,18 @@ class CalendarService:
             events = events_result.get('items', [])
 
             # イベントデータを整形
-            formatted_events = []
-            for event in events:
-                formatted_event = {
-                    'id': event['id'],
-                    'summary': event.get('summary', 'No Title'),
-                    'description': event.get('description', ''),
-                    'start': event['start'].get('dateTime', event['start'].get('date')),
-                    'end': event['end'].get('dateTime', event['end'].get('date')),
-                    'location': event.get('location', ''),
-                    'year': year,
-                    'month': month,
-                    'day': day,
-                    'calendar_id': calendar_id
-                }
-                formatted_events.append(formatted_event)
+            formatted_events = list(map(lambda event: {
+                'id': event['id'],
+                'summary': event.get('summary', 'No Title'),
+                'description': event.get('description', ''),
+                'start': event['start'].get('dateTime', event['start'].get('date')),
+                'end': event['end'].get('dateTime', event['end'].get('date')),
+                'location': event.get('location', ''),
+                'year': year,
+                'month': month,
+                'day': day,
+                'calendar_id': calendar_id
+            }, events))
 
             return formatted_events
 
