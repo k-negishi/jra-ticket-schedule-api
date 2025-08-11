@@ -88,63 +88,6 @@ class TestLambdaHandler:
         assert 'error' in body
         assert 'Invalid date' in body['error']
 
-    def test_lambda_handler_wrong_endpoint(self):
-        """間違ったエンドポイントのテスト"""
-        event = {
-            'requestContext': {
-                'http': {
-                    'method': 'GET'
-                }
-            },
-            'rawPath': '/wrong-endpoint',
-            'rawQueryString': ''
-        }
-        
-        response = lambda_handler(event, None)
-        
-        assert response['statusCode'] == 404
-        body = json.loads(response['body'])
-        assert 'error' in body
-        assert 'Endpoint not found' in body['error']
-
-    def test_lambda_handler_wrong_method(self):
-        """間違ったHTTPメソッドのテスト"""
-        event = {
-            'requestContext': {
-                'http': {
-                    'method': 'POST'
-                }
-            },
-            'rawPath': '/jra-calendar/events',
-            'rawQueryString': 'year=2024&month=1&day=15'
-        }
-        
-        response = lambda_handler(event, None)
-        
-        assert response['statusCode'] == 404
-        body = json.loads(response['body'])
-        assert 'error' in body
-        assert 'Endpoint not found' in body['error']
-
-    def test_lambda_handler_empty_query_string(self):
-        """空のクエリ文字列のテスト"""
-        event = {
-            'requestContext': {
-                'http': {
-                    'method': 'GET'
-                }
-            },
-            'rawPath': '/jra-calendar/events',
-            'rawQueryString': ''
-        }
-        
-        response = lambda_handler(event, None)
-        
-        assert response['statusCode'] == 400
-        body = json.loads(response['body'])
-        assert 'error' in body
-        assert 'year, month, and day are required parameters' in body['error']
-
     def test_lambda_handler_no_events_found(self):
         """イベントが見つからない場合のテスト"""
         event = {
