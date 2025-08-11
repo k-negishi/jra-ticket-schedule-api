@@ -78,7 +78,7 @@ class TestLambdaHandler:
                 }
             },
             'rawPath': '/jra-calendar/events',
-            'rawQueryString': 'year=2024&month=13&day=1'  # 無効な月
+            'rawQueryString': 'year=2025&month=13&day=1'  # 無効な月
         }
         
         response = lambda_handler(event, None)
