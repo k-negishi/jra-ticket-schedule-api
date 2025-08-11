@@ -47,6 +47,7 @@ def lambda_handler(event, context):
             except ValueError:
                 return create_error_response(400, 'Invalid date')
 
+            # GoogleカレンダーAPIをリクエスト
             events = calendar_service.get_events_by_date(year, month, day)
 
             # イベントをグレード順に並べ替えて整形
