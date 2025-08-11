@@ -1,5 +1,8 @@
 # JRAカレンダーAPI
 
+![Python](https://img.shields.io/badge/python-3.11-blue.svg)
+![AWS Lambda](https://img.shields.io/badge/AWS-Lambda-orange.svg)
+
 JRAカレンダーAPIは、Google Calendar APIを使用して日本中央競馬会(JRA)の重賞レース情報を取得するAPIです。  
 AWS Lambda関数(Lambda Function URL)によって実装されており、指定した日付の競馬イベントを取得できます。  
 
