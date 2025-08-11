@@ -25,7 +25,7 @@ def lambda_handler(event, context):
         calendar_service = CalendarService()
 
         # 指定日のイベント取得
-        if path == '/jra-calendar/races' and http_method == 'GET':
+        if path == '/jra-calendar/events' and http_method == 'GET':
             # 必須パラメータの検証
             year = query_params.get('year')
             month = query_params.get('month')
