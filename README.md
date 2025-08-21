@@ -1,6 +1,6 @@
 # JRAカレンダーAPI
 
-![Python](https://img.shields.io/badge/python-3.11-blue.svg)
+![Python](https://img.shields.io/badge/python-3.13-blue.svg)
 ![AWS Lambda](https://img.shields.io/badge/AWS-Lambda-orange.svg)
 
 JRAカレンダーAPIは、Google Calendar APIを使用して日本中央競馬会(JRA)の重賞レース情報を取得するAPIです。  
@@ -14,7 +14,7 @@ https://github.com/k-negishi/jra-ticket-schedule
 
 ## 技術スタック
 - AWS Lambda
-- Python 3.11
+- Python 3.13
 - Google Calendar API
 - Serverless Framework
 
