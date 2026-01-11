@@ -47,4 +47,4 @@ jobs:
           GOOGLE_SERVICE_ACCOUNT_EMAIL: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_EMAIL }}
           GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
           GOOGLE_CLIENT_CERT_URL: ${{ secrets.GOOGLE_CLIENT_CERT_URL }}
-          CALENDAR_CONFIGS: ${{ secrets.CALENDAR_CONFIGS }}
+          CALENDAR_ID: ${{ secrets.CALENDAR_ID }}
