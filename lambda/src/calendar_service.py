@@ -4,7 +4,7 @@ from typing import Any, Dict, List
 
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
-from src.config.calendar_mapping import get_calendar_config
+from src.config.calendar_mapping import get_calendar_id
 
 
 class CalendarService:
@@ -56,12 +56,8 @@ class CalendarService:
             重賞レースのリスト
         """
         try:
-            # 年別カレンダー設定を取得
-            config = get_calendar_config(2025)
-            if not config:
-                raise ValueError(f"Calendar config not found for year {year}")
-
-            calendar_id = config["calendar_id"]
+            # カレンダーIDを取得
+            calendar_id = get_calendar_id()
 
             # JST タイムゾーンを定義（UTC+9）
             jst = timezone(timedelta(hours=9))

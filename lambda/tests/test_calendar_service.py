@@ -3,7 +3,7 @@ import os
 import pytest
 from dotenv import load_dotenv
 from src.calendar_service import CalendarService
-from src.config.calendar_mapping import get_available_years, get_calendar_config
+from src.config.calendar_mapping import get_calendar_id
 
 load_dotenv()
 
@@ -70,33 +70,13 @@ class TestCalendarService:
 
 
 class TestCalendarMapping:
-    def test_get_calendar_config(self):
-        """カレンダー設定取得テスト"""
+    def test_get_calendar_id(self):
+        """カレンダーID取得テスト"""
         # 環境変数から設定を取得
-        config = get_calendar_config(2024)
+        calendar_id = get_calendar_id()
 
-        if config:
-            assert "calendar_id" in config
-            assert "url" in config
-            assert isinstance(config["calendar_id"], str)
-            assert isinstance(config["url"], str)
-        else:
-            # 設定が存在しない場合はNoneが返されることを確認
-            assert config is None
-
-    def test_get_available_years(self):
-        """利用可能な年のリスト取得テスト"""
-        years = get_available_years()
-
-        # リスト形式で返されることを確認
-        assert isinstance(years, list)
-
-        # 年が整数で返されることを確認
-        for year in years:
-            assert isinstance(year, int)
-            assert year > 2000  # 妥当な年範囲
-
-    def test_get_calendar_config_invalid_year(self):
-        """存在しない年のカレンダー設定取得テスト"""
-        config = get_calendar_config(1900)  # 存在しない年
-        assert config is None
+        # カレンダーIDが文字列で返されることを確認
+        assert isinstance(calendar_id, str)
+        assert len(calendar_id) > 0
+        # Google Calendar形式のカレンダーIDを確認
+        assert "@group.calendar.google.com" in calendar_id
