@@ -56,7 +56,7 @@ class CalendarService:
         """
         try:
             # 年別カレンダー設定を取得
-            config = get_calendar_config(year)
+            config = get_calendar_config(2025)
             if not config:
                 raise ValueError(f"Calendar config not found for year {year}")
 
